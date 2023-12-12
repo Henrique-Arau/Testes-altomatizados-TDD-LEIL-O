@@ -17,10 +17,14 @@ public class LancesLeilaoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lances_leilao);
         Intent dadosRecebidos = getIntent();
-        if(dadosRecebidos.hasExtra("leilao")){
+        if (dadosRecebidos.hasExtra("leilao")) {
             Leilao leilao = (Leilao) dadosRecebidos.getSerializableExtra("leilao");
             TextView descricao = findViewById(R.id.lances_leilao_descricao);
             descricao.setText(leilao.getDescricao());
+            TextView maiorLance = findViewById(R.id.lances_leilao_maior_lance);
+            maiorLance.setText(String.valueOf(leilao.getMaiorLance()));
+            TextView menorLance = findViewById(R.id.lances_leilao_menor_lance);
+            menorLance.setText(String.valueOf(leilao.getMenorLance()));
         }
     }
 }
